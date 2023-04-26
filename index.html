@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+    <title>payroll</title>
+</head>
+
+
+<body>
+
+    <div style="margin-top: 50px; text-align: center;">
+        <p class="fs-2 fw-bolder">NET PAY CALCULATOR</p>
+        <p class="fs-5">Enter the gross salary below amount to calculate your net amount.</p>
+
+    </div>
+
+    <div class="modal-content">
+        <div class="modal-header">
+            <form method="post" action="">
+                <div class="form-group">
+                    <div class="input-group mb-3" style="margin-left: 50%;">
+                        <span class="input-group-text" id="basic-addon1">KES</span>
+
+                        <input id="salary-input" type="text" class="form-control" aria-label="#"
+                            aria-describedby="button-addon2" style="width: 500px; text-align: right;">
+
+                        <button onclick="calculate()" class="btn btn-outline" type="button" id="button-addon2"
+                            style="background-color :rgb(239, 183, 79); margin-left: 50px; border-radius: 5px;"><span style="color: white;">Calculate</span></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="modal-body">
+            <table class="table table-bordered" style="width: 70%; margin-left: 25%;">
+                <tbody>
+                    <tr>
+                        <th>Description</th>
+                        <th class="text-right">Result</th>
+                    </tr>
+
+                    <tr>
+                        <td><span class="">Base salary<br></span></td>
+                        <td id="base_salary"> </td>
+                    </tr>
+
+                    <tr>
+                        <td><span class="">NSSF<br></span>
+                           
+                        </td>
+
+                        <td id="nssf"> </td>
+                    </tr>
+
+                    <tr>
+                        <td><span class="">Final P.A.Y.E.<br></span></td>
+
+                        <td id="paye"> </td>
+                    </tr>
+
+                    <tr>
+                        <td><span class="">NHIF<br></span></td>
+
+                        <td id="nhif"> </td>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><span class="fw-bold">Net pay<br></span></td>
+                        <td id="net_pay" class="fw-bold"0> </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap4.min.js"></script>
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>
