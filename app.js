@@ -1,9 +1,5 @@
 function calculate() {
     
-    // const nssf_value = document.getElementById("nssf").value 
-    // const nhif_value = document.getElementById("nhif").value 
-    // const paye_value = document.getElementById("paye").value 
-
 
     const grossPay = document.getElementById("salary-input").value 
     document.getElementById("base_salary").innerHTML= grossPay
@@ -42,36 +38,29 @@ function calculate_nssf(grossPay){
 // function calculate_PAYE(grossPay) {
 // }
 function calculate_PAYE(grossPay) {
-    let paye = 0;
-  
-    // Taxable income after deducting personal relief of 2,400
-    let taxableIncome = grossPay - 2400;
-  
-    if (taxableIncome <= 0) {
-      paye = 0;
-    } else if (taxableIncome <= 24000) {
-        paye = taxableIncome * 0.1;
-    } else if (taxableIncome <= 40667) {
-        paye = 2400 + ((taxableIncome - 24000) * 0.15);
-    } else if (taxableIncome <= 57333) {
-        paye = 4800 + ((taxableIncome - 40667) * 0.20);
-    } else if (taxableIncome <= 74000) {
-        paye = 9300 + ((taxableIncome - 57333) * 0.25);
-    } else if (taxableIncome <= 140000) {
-        paye = 13800 + ((taxableIncome - 74000) * 0.3);
-    } else if (taxableIncome <= 180000) {
-        paye = 30600 + ((taxableIncome - 140000) * 0.32);
-    } else {
-        paye = 48600 + ((taxableIncome - 180000) * 0.34);
+
+        const personalRelief = 2400;
+        const taxableIncome = grossPay - personalRelief
+
+        let paye = 0;
+      
+        if (taxableIncome <= 24001) {
+          paye = 0
+        }
+        else if (taxableIncome > 24001 && taxableIncome <= 32333) {
+          paye = 2400 + (taxableIncome - 24000) * 0.25;
+        }
+
+        else if (taxableIncome > 32333) {
+          paye = 2400 + (taxableIncome - 32333) * 0.3;
+        }
+      
+        return paye;
+        
     }
-  
-    return paye;
-  }
-  
-  // Example usage
-  const kraPaye = calculateKRAPAYE(50000); // Returns 3260
-  
-function calculate_nhif(grossPay){
+
+
+  function calculate_nhif(grossPay){
 
     let nhifRate = 0;
     
@@ -111,7 +100,6 @@ function calculate_nhif(grossPay){
       nhifRate = 1700;
     }
     
-    // console.log(`The NHIF rate for a gross pay of ${grossPay} is ${nhifRate}`);
     return nhifRate
 }
 
